@@ -6,6 +6,7 @@ import com.example.form.InsertAdministratorForm;
 import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +29,21 @@ public class AdministratorController {
     /**
      * ログイン画面に遷移
      *
-     * @param form
-     * @return
+     * @param form フォーム
+     * @return ログイン画面
      */
     @GetMapping("/")
     public String toLogin(LoginForm form){
         return "administrator/login";
     }
+
+    /**
+     *
+     *
+     * @param form
+     * @param model
+     * @return
+     */
     @PostMapping("/login")
     public String login(LoginForm form, Model model){
         Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
@@ -55,5 +64,14 @@ public class AdministratorController {
     @GetMapping("to-insert")
     public String toInsert(InsertAdministratorForm form){
         return "administrator/insert";
+    }
+
+    @PostMapping("/insert")
+    public String insert(InsertAdministratorForm form){
+        Administrator administrator = new Administrator();
+        BeanUtils.copyProperties(form, administrator);
+        System.out.println(administrator);
+        administratorService.insert(administrator);
+        return "redirect:/";
     }
 }
