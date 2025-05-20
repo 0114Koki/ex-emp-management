@@ -67,7 +67,7 @@ public class AdministratorController {
     /**
      * 管理者情報をDBに登録する.
      *
-     * @param form
+     * @param form フォーム
      * @return
      */
     @PostMapping("/insert")
