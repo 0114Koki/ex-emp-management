@@ -15,7 +15,7 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
     /**
-     * 全従業員情報を取得する
+     * 全従業員情報を取得する.
      *
      * @return List<Employee> employeeリスト
      */
