@@ -22,7 +22,7 @@ public class AdministratorController {
     private AdministratorService administratorService;
 
     /**
-     * ログイン画面に遷移する
+     * ログイン画面に遷移
      *
      * @param form
      * @return
@@ -35,7 +35,7 @@ public class AdministratorController {
 
 
     /**
-     * 管理者情報を登録する
+     * 管理者情報を登録
      *
      * @param form
      * @return
