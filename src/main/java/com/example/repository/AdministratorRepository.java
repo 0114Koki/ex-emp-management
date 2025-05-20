@@ -12,6 +12,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * administratorsテーブルを操作するリポジトリクラス.
+ *
+ * @author koki.kurihara
+ */
 @Repository
 public class AdministratorRepository {
     @Autowired
@@ -28,10 +33,9 @@ public class AdministratorRepository {
 
     /**
      * 渡した管理者情報を挿入する.
-     * @param administrator 管理者情報
      *
-     * @author koki.kurihara
-     * */
+     * @param administrator 管理者情報
+     */
     public void insert(Administrator administrator){
         SqlParameterSource param
                 = new BeanPropertySqlParameterSource(administrator);
@@ -39,17 +43,16 @@ public class AdministratorRepository {
                 = "INSERT INTO administrator(name, mail_address, password) " +
                 " VALUES (:name, :mail_address, :password); ";
         template.update(insertSql, param);
-        return;
     }
 
 
     /**
      * メールアドレスとパスワードから管理者情報を取得する.
      * (1件も存在しない場合はnullを返す。)
+     *
      * @param mailAddress メールアドレス
      * @param password パスワード
      * @return 検索された管理者情報
-     * @author koki.kurihara
      * */
     public Administrator findByMailAddressPassword(String mailAddress, String password){
         String sql = "SELECT id, name, mainAddress, password " +
@@ -57,8 +60,6 @@ public class AdministratorRepository {
                 " WHERE mail_address=:mailAddress AND password=:password ";
         SqlParameterSource param
                 = new MapSqlParameterSource().addValue("mail_address", mailAddress).addValue("password", password);
-//        Administrator administrator
-//                = template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
         List<Administrator> administratorList
                 = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
         if (administratorList.isEmpty()){
@@ -66,5 +67,4 @@ public class AdministratorRepository {
         }
         return administratorList.getFirst();
     }
-
 }

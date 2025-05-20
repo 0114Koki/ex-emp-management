@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * employeesテーブルを操作するリポジトリクラス
+ *
+ * @author koki.kurihara
+ */
 @Repository
 public class EmployeeRepository {
     @Autowired
@@ -35,10 +40,10 @@ public class EmployeeRepository {
     };
 
     /**
-     * 全件検索を行う
+     * 全件検索を行う.
+     *
      * @return 全従業員一覧
-     * */
-
+     */
     public List<Employee> finAll(){
         String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count " +
                 " FROM employees ORDER BY age;";
@@ -51,11 +56,10 @@ public class EmployeeRepository {
 
     /**
      * 主キー検索を行う.
+     *
      * @param id ID
      * @return 検索された従業員情報
-     * @author koki.kurihara
-     * */
-
+     */
     public Employee findById(Integer id){
         String sql = "SELECT id, name, image, gender, hire_date, mail_address, " +
                 " zip_code, address, telephone, salary, characteristics, dependents_count " +
@@ -70,11 +74,10 @@ public class EmployeeRepository {
     /**
      * 従業員情報を変更します.
      * (idカラムをのぞいた従業員情報のすべてのカラム更新できるようなSQLの発行)
+     *
      * @param employee 従業員情報
      * @return 検索された従業員情報
-     * @author koki.kurihara
-     * */
-
+     */
     public void update(Employee employee){
         SqlParameterSource param
                 = new BeanPropertySqlParameterSource(employee);
@@ -84,9 +87,6 @@ public class EmployeeRepository {
                 " telephone=:telephone, salary=:salary, characteristics=:characteristics, dependents_count=:dependentsCount " +
                 " WHERE id=:id;";
         template.update(updateSql, param);
-        return;
+
     }
-
-
-
 }
