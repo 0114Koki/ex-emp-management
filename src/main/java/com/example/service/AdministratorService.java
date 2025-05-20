@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 管理者情報を操作するサービス
+ * 管理者情報を操作するサービス.
  *
  * @author koki.kurihara
  */
@@ -18,7 +18,7 @@ public class AdministratorService {
     private AdministratorRepository administratorRepository;
 
     /**
-     * ログイン処理をする
+     * ログイン処理をする.
      *
      * @param mailAddress メールアドレス
      * @param password パスワード
@@ -28,7 +28,7 @@ public class AdministratorService {
     }
 
     /**
-     * 管理者情報を挿入する
+     * 管理者情報を挿入する.
      *
      * @param administrator 管理者情報
      */

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 管理者関連機能の制御を行うコントローラ
+ * 管理者関連機能の制御を行うコントローラ.
  *
  * @author koki.kurihara
  */
@@ -27,7 +27,7 @@ public class AdministratorController {
     @Autowired
     private HttpSession session;
     /**
-     * ログイン画面に遷移
+     * ログイン画面に移動する.
      *
      * @param form フォーム
      * @return ログイン画面
@@ -38,11 +38,10 @@ public class AdministratorController {
     }
 
     /**
+     * 管理者情報のログイン処理をします.
      *
-     *
-     * @param form
-     * @param model
-     * @return
+     * @param form フォーム
+     * @param model リクエストスコープ
      */
     @PostMapping("/login")
     public String login(LoginForm form, Model model){
@@ -56,16 +55,21 @@ public class AdministratorController {
     }
 
     /**
-     * 管理者情報を登録
+     * 管理者情報登録画面に移動する
      *
-     * @param form
-     * @return
+     * @param form フォーム
      */
     @GetMapping("to-insert")
     public String toInsert(InsertAdministratorForm form){
         return "administrator/insert";
     }
 
+    /**
+     * 管理者情報をDBに登録する.
+     *
+     * @param form
+     * @return
+     */
     @PostMapping("/insert")
     public String insert(InsertAdministratorForm form){
         Administrator administrator = new Administrator();
