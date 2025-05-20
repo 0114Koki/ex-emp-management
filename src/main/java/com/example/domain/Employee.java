@@ -4,8 +4,8 @@ package com.example.domain;
 import java.util.Date;
 
 /**
- * 従業員情報を表すドメインです。
- * Employeesテーブルに対応しています
+ * 従業員情報を表すドメインです.
+ * Employeesテーブルに対応しています。
  *
  * @author koki.kurihara
  * */

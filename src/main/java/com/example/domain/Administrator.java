@@ -3,8 +3,8 @@ package com.example.domain;
 import java.io.Serial;
 
 /**
- * 管理者情報を表すドメインクラスです
- * administratorsテーブルに対応しています
+ * 管理者情報を表すドメインクラスです.
+ * administratorsテーブルに対応しています。
  *
  * @author koki.kurihara
  * */
