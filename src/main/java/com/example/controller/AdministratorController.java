@@ -42,6 +42,7 @@ public class AdministratorController {
      *
      * @param form フォーム
      * @param model リクエストスコープ
+     * @return 従業員一覧画面(ログイン失敗時はログイン画面)
      */
     @PostMapping("/login")
     public String login(LoginForm form, Model model){
@@ -68,7 +69,7 @@ public class AdministratorController {
      * 管理者情報をDBに登録する.
      *
      * @param form フォーム
-     * @return
+     * @return ログイン画面
      */
     @PostMapping("/insert")
     public String insert(InsertAdministratorForm form){
