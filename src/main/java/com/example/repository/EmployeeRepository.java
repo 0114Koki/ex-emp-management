@@ -89,6 +89,5 @@ public class EmployeeRepository {
                 " telephone=:telephone, salary=:salary, characteristics=:characteristics, dependents_count=:dependentsCount " +
                 " WHERE id=:id;";
         template.update(updateSql, param);
-
     }
 }

@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ * 従業員関連機能の制御を行うコントローラ
+ *
+ * @author koki.kurihara
+ */
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
