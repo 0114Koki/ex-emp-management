@@ -29,7 +29,7 @@ public class AdministratorController {
      */
     @GetMapping("/")
     public String toLogin(LoginForm form){
-        return "administration/login";
+        return "administrator/login";
     }
 
 
