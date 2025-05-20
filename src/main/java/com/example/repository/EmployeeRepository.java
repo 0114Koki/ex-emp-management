@@ -44,9 +44,11 @@ public class EmployeeRepository {
      *
      * @return 全従業員一覧
      */
-    public List<Employee> finAll(){
-        String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count " +
-                " FROM employees ORDER BY age;";
+    public List<Employee> findAll(){
+        String sql = "SELECT id, name, image, gender, hire_date, mail_address, " +
+                " zip_code, address, telephone, salary, " +
+                " characteristics, dependents_count " +
+                " FROM employees ORDER BY id;";
 
         List<Employee> employeeList
                 = template.query(sql, EMPLOYEE_ROW_MAPPER);
