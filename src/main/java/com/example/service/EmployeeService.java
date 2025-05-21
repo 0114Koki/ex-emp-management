@@ -29,7 +29,7 @@ public class EmployeeService {
     }
 
     /**
-     * 従業員情報を取得する
+     * 従業員情報を取得する.
      *
      * @param id ID
      * @return 従業員情報
@@ -38,6 +38,11 @@ public class EmployeeService {
         return employeeRepository.findById(id);
     }
 
+    /**
+     * 従業員情報を上書きする.
+     *
+     * @param employee
+     */
     public void update(Employee employee){
         employeeRepository.update(employee);
     }

@@ -62,7 +62,10 @@
               <span th:text="${session.administratorName + 'さん'}"
                 >山田さん</span
               >こんにちは！ &nbsp;&nbsp;&nbsp;
-              <a href="../administrator/login.html" class="navbar-link"
+              <a
+                href="../administrator/login.html"
+                class="navbar-link"
+                th:href="@{/logout}"
                 >ログアウト</a
               >
             </p>
@@ -90,7 +93,12 @@
             <!-- ここから上を編集する必要はありません -->
 
             <!-- ここにモックのform要素を貼り付けます -->
-            <form method="post" action="list.html">
+            <form
+              method="post"
+              action="list.html"
+              th:action="@{/employee/update}"
+              th:object="${updateEmployeeForm}"
+            >
               <fieldset>
                 <legend>従業員情報</legend>
                 <table class="table table-striped">
@@ -159,7 +167,7 @@
                   <tr>
                     <th nowrap>特性</th>
                     <td>
-                      <span th:text="${employee.characteristic}"
+                      <span th:text="${employee.characteristics}"
                         >明るく素直な性格です。リーダーシップを発揮します。新卒社員研修の時はグループ開発の時にリーダーを買ってでました。積極性も人間性も抜群です。周りに対する不満も聞いたことがありません。</span
                       >
                     </td>

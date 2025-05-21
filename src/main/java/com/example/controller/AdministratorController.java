@@ -51,7 +51,7 @@ public class AdministratorController {
             model.addAttribute("errorMessage", "メールアドレスまたはパスワードが不正です。");
             return "administrator/login";
         }
-        session.setAttribute("administratorName", administrator);
+        session.setAttribute("administratorName", administrator.getName());
         return "redirect:/employee/showList";
     }
 
@@ -77,6 +77,19 @@ public class AdministratorController {
         BeanUtils.copyProperties(form, administrator);
         System.out.println(administrator);
         administratorService.insert(administrator);
+        return "redirect:/";
+    }
+
+
+    /**
+     * ログアウト処理をする.
+     *
+     * @param form フォーム
+     * @return ログイン画面にリダイレクト
+     */
+    @GetMapping("/logout")
+    public String logout(LoginForm form){
+        session.invalidate();
         return "redirect:/";
     }
 }
