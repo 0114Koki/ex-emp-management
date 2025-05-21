@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.domain.Employee;
+import com.example.form.UpdateEmployeeForm;
 import com.example.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,15 +23,30 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     /**
-     * 従業員一覧を出力する.
+     * 従業員一覧を表示する.
      *
      * @param model リクエストスコープ
-     * @return 全従業員情報の表示画面に移動
+     * @return 従業員一覧画面
      */
     @GetMapping("/showList")
     public String showList(Model model){
         List<Employee> employeeList = employeeService.showList();
         model.addAttribute("employeeList", employeeList);
         return "employee/list";
+    }
+    /**
+     * 従業員情報を表示する.
+     *
+     * @param id ID
+     * @param model リクエストスコープ
+     * @param form フォーム
+     * @return 従業員情報の表示画面
+     */
+    @GetMapping("/show-detail")
+    public String showDetail(String id, Model model, UpdateEmployeeForm form){
+        int intId = Integer.parseInt(id);
+        Employee employee = employeeService.showDetail(intId);
+        model.addAttribute("employee", employee);
+        return "employee/detail";
     }
 }

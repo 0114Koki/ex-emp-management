@@ -16,6 +16,10 @@ public class UpdateEmployeeForm {
         return id;
     }
 
+    public int getIntId(){
+        return Integer.parseInt(id);
+    }
+
     public void setId(String id) {
         this.id = id;
     }

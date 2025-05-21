@@ -8,6 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * 従業員情報を操作するService
+ *
+ * @author koki.kurihara
+ */
 @Service
 @Transactional
 public class EmployeeService {
@@ -17,9 +22,19 @@ public class EmployeeService {
     /**
      * 全従業員情報を取得する.
      *
-     * @return List<Employee> employeeリスト
+     * @return 従業員一覧情報
      */
     public List<Employee> showList(){
         return employeeRepository.findAll();
+    }
+
+    /**
+     * 従業員情報を取得する
+     *
+     * @param id ID
+     * @return 従業員情報
+     */
+    public Employee showDetail(Integer id){
+        return employeeRepository.findById(id);
     }
 }
